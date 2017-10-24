@@ -13,7 +13,7 @@ def modify_file_inplace(filename, crypto, blocksize=16):
 
         while plaintext:
             ciphertext = crypto(plaintext)
-            if len(plaintext) != ciphertext:
+            if len(plaintext) != len(ciphertext):
                 raise ValueError('''Ciphertext({})is not of the same length of the Plaintext({}).
                 Not a stream cipher.'''.format(len(ciphertext), len(plaintext)))
 
