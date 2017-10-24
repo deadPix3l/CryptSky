@@ -1,6 +1,7 @@
+#!/usr/bin/env python
 import os
 
-def walking(startpath):
+def discoverFiles(startpath):
     '''
     Walk the path recursively down from startpath, and perform method on matching files.
 
@@ -50,6 +51,6 @@ def walking(startpath):
                 yield absolute_path
 
 if __name__ == "__main__":
-    x = walking('/')
+    x = discoverFiles('/')
     for i in x:
         print i
