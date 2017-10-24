@@ -23,7 +23,7 @@ def discoverFiles(startpath):
     # BUT applications which depend on such resources may become broken.
     # This will not cover all files, but it should be a decent range.
     extensions = [
-        # 'exe,', 'dll', 'so', 'rpm', 'deb', 'vmlinuz', # SYSTEM FILES - BEWARE! MAY DESTROY SYSTEM!
+        # 'exe,', 'dll', 'so', 'rpm', 'deb', 'vmlinuz', 'img',  # SYSTEM FILES - BEWARE! MAY DESTROY SYSTEM!
         'jpg', 'jpeg', 'bmp', 'gif', 'png', 'svg', 'psd', 'raw', # images
         'mp3','mp4', 'm4a', 'aac','ogg','flac', 'wav', 'wma', 'aiff', 'ape', # music and sound
         'avi', 'flv', 'm4v', 'mkv', 'mov', 'mpg', 'mpeg', 'wmv', 'swf', '3gp', # Video and movies
@@ -31,7 +31,7 @@ def discoverFiles(startpath):
         'doc', 'docx', 'xls', 'xlsx', 'ppt','pptx', # Microsoft office
         'odt', 'odp', 'ods', 'txt', 'rtf', 'tex', 'pdf', 'epub', 'md', # OpenOffice, Adobe, Latex, Markdown, etc
         'yml', 'yaml', 'json', 'xml', 'csv', # structured data
-        'db', 'sql', 'dbf', 'mdb', 'iso', 'img', # databases and disc images
+        'db', 'sql', 'dbf', 'mdb', 'iso', # databases and disc images
 
         'html', 'htm', 'xhtml', 'php', 'asp', 'aspx', 'js', 'jsp', 'css', # web technologies
         'c', 'cpp', 'cxx', 'h', 'hpp', 'hxx', # C source code
@@ -40,7 +40,7 @@ def discoverFiles(startpath):
         'awk', 'sh', 'cgi', 'pl', 'ada', 'swift', # linux/mac based scripts
         'go', 'py', 'pyc', 'bf', 'coffee', # other source code files
 
-        'zip', 'tar', 'tgz', 'gz', 'bz2', '7z', 'rar', 'bak',  # compressed formats
+        'zip', 'tar', 'tgz', 'tar.gz', 'bz2', '7z', 'rar', 'bak',  # compressed formats
     ]
 
     for dirpath, dirs, files in os.walk(startpath):
