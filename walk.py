@@ -40,7 +40,7 @@ def discoverFiles(startpath):
         'awk', 'sh', 'cgi', 'pl', 'ada', 'swift', # linux/mac based scripts
         'go', 'py', 'pyc', 'bf', 'coffee', # other source code files
 
-        'zip', 'tar', 'tgz', 'tar.gz', 'bz2', '7z', 'rar', 'bak',  # compressed formats
+        'zip', 'tar', 'tgz', 'bz2', '7z', 'rar', 'bak',  # compressed formats
     ]
 
     for dirpath, dirs, files in os.walk(startpath):
