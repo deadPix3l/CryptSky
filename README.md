@@ -18,7 +18,7 @@ that. Maybe. Open an issue if you so desire, pull requests welcome.**
 
 ## Why?
 
-There is  sever lack of open source ransomware, and for good reason! But by
+There is a severe lack of open source ransomware, and for good reason! But by
 having so few examples, and those examples being inaccurate (intentionally bad
 code with flaws), or just too complicated, it doesn't leave much to analyze
 and learn from. People seem to think that ransomware is hard to write. That
@@ -31,7 +31,7 @@ and what can be done to stop it, and an overall safer internet.
 
 But aren't you worried someone will abuse it for profit?
 
-- Not really. There plenty of much better, more advanced ransomware out there.
+- Not really. There are plenty of much better, more advanced ransomware out there.
  Even if they do, it's hopefully few compared to the good it will do.
 
 But when they do, it would be your fault!
@@ -44,5 +44,5 @@ But...
 
 - Alright. Bottom line. Security is a very reactive business. To make the
 world more secure you first have to make it less secure. To make better AV and
-signatures, you must first make better malware. And that's what were doing
+signatures, you must first make better malware. And that's what we're doing
 here.
