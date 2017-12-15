@@ -43,7 +43,7 @@ Happy decrypting and be more careful next time!
 
 Your decryption key is: '{}'
 
-'''.format(hardcoded_key)
+'''.format(HARDCODED_KEY)
         key = raw_input('Enter Your Key> ')
 
     else:
