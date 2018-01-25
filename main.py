@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from crypto.Cipher import AES
-from crypto.Util import Counter
+from Cryptodome.Cipher import AES
+from Cryptodome.Util import Counter
 import argparse
 import os
 

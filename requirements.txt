@@ -1,1 +1,1 @@
-pycryptodome
+pycryptodomex
