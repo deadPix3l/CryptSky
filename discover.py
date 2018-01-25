@@ -53,4 +53,4 @@ def discoverFiles(startpath):
 if __name__ == "__main__":
     x = discoverFiles('/')
     for i in x:
-        print i
+        print(i)
