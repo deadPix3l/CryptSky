@@ -8,7 +8,7 @@ def modify_file_inplace(filename, crypto, blocksize=16):
     :blocksize: length of blocks to read and write.
     :return: None
     '''
-    with open(filename, 'rw+b') as f:
+    with open(filename, 'r+b') as f:
         plaintext = f.read(blocksize)
 
         while plaintext:
